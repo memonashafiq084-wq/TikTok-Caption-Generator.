@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pro TikTok Caption Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#000000,#ff0050);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 { font-size: 24px; }
+
+    input, select, button {
+      padding: 12px;
+      margin: 10px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    button {
+      background: #00f2ea;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    .copy-btn {
+      margin-top: 10px;
+      background: #ff0050;
+      color: white;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: black;
+    }
+
+    footer a {
+      color: #00f2ea;
+      margin: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔥 Free AI Style TikTok Caption Generator</h1>
+
+<input type="text" id="topic" placeholder="Enter your topic">
+
+<br>
+
+<select id="category">
+  <option value="funny">Funny</option>
+  <option value="motivation">Motivation</option>
+  <option value="business">Business</option>
+  <option value="beauty">Beauty</option>
+  <option value="gaming">Gaming</option>
+  <option value="lifestyle">Lifestyle</option>
+</select>
+
+<br>
+
+<button onclick="generate()">Generate Captions</button>
+
+<div class="box" id="output"></div>
+<button class="copy-btn" onclick="copyText()">Copy All</button>
+
+<script>
+function generate() {
+  var topic = document.getElementById("topic").value.trim();
+  var category = document.getElementById("category").value;
+
+  if(topic === "") {
+    alert("Please enter a topic");
+    return;
+  }
+
+  var captions = [
+    "1️⃣ " + topic + " but make it viral 🔥",
+    "2️⃣ Nobody talks about " + topic + " like this 👀",
+    "3️⃣ This will change how you see " + topic + " 💯"
+  ];
+
+  var hashtags = [
+    "#FYP","#Viral","#Trending","#ForYou","#TikTok",
+    "#ContentCreator","#Explore","#Inspiration",
+    "#" + topic.replace(/\s/g,''),
+    "#" + category,
+    "#DailyContent","#CreatorLife","#SocialMedia",
+    "#VideoContent","#Growth"
+  ];
+
+  document.getElementById("output").innerHTML =
+    "<b>Captions:</b><br><br>" +
+    captions.join("<br><br>") +
+    "<br><br><b>Hashtags:</b><br>" +
+    hashtags.join(" ");
+}
+
+function copyText() {
+  var text = document.getElementById("output").innerText;
+  navigator.clipboard.writeText(text);
+  alert("Copied Successfully!");
+}
+</script>
+
+<footer>
+  <p>© 2026 Pro TikTok Caption Generator | All Rights Reserved</p>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms</a>
+</footer>
+
+</body>
+</html>
